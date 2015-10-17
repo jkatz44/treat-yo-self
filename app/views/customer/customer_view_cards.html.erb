@@ -5,10 +5,11 @@
     </div>
 </div>
 -->
-<div class="Card">
-  <div class="container">
+<div class="container">
     <% @cards.each do |card| %> 
-    <%= card.business_name %>
-    <%= card.points %>
-    </div>
+      <div class="Card">
+      <%= card.business_name %>: <%= card.points %>
+      
+      </div><br />
+      <%end%>
 </div>
