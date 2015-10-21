@@ -6,5 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-business1 = Card.create([phone_number: '1234567890', business_name: 'Walgreens', points: 1000])
-business2 = Card.create([phone_number: '1234567890', business_name: 'CVS', points: 2000])
+card1 = Card.create([phone_number: '1234567890', business_name: 'Walgreens', points: 1000])
+card2 = Card.create([phone_number: '1234567890', business_name: 'CVS', points: 2000])
+card3 = Card.create([phone_number: '9876543210', business_name: 'Yogurtland', points: 3000])
+card4 = Card.create([phone_number: '9876543210', business_name: 'CVS', points: 500])
