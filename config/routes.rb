@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'business/confirmation' => 'business#update_total_points'
   #get 'business' => 'business#update_total_points'
   get 'business/update_points' => 'business#search_phone_number'
-  patch 'business' => 'business#do_update_card'
+  patch 'business' => 'business#check_phone_number'
+  get 'business/phone_number_not_found' => 'business#phone_number_not_found'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

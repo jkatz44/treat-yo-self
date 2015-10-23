@@ -1,10 +1,9 @@
-<h2><em>Search phone numbers here! (JK)</em></h2>
+<h2><em>Search phone numbers here!</em></h2>
 
-<%= form_for(@card , url: {action: 'do_update_card'}) do |f| %>
-    	<div class="field">
-        <%= f.text_area :points %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
+<%= form_tag({controller: "business", action: "check_phone_number"}, method: "patch", class: "business_form") do %>
+  <%= label_tag(:phone_number, "Search for:") %>
+  <%= text_field_tag(:phone_number) %>
+  <%= label_tag(:points, "Points earned:") %>
+  <%= text_field_tag(:points) %>
+  <%= submit_tag("Update") %>
 <% end %>
