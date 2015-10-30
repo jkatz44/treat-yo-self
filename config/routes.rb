@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'customer' => 'customer#customer_view_cards'
-  get 'business/confirmation' => 'business#update_total_points'
-  #get 'business' => 'business#update_total_points'
-  get 'business/update_points' => 'business#search_phone_number'
-  patch 'business' => 'business#check_phone_number'
-  get 'business/phone_number_not_found' => 'business#phone_number_not_found'
+  get 'business' => 'business#options'
+  get 'business/update_card' => 'business#update_card'
+  patch 'business/something' => 'business#check_phone_number'
+  get 'business/add_card' => 'business#add_card'
+  patch 'business/do_add_card' => 'business#do_add_card'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
