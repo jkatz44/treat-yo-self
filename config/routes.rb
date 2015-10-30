@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'customer' => 'customer#customer_view_cards'
+  root 'welcome#index'
+  get 'customer' => 'customer#customer_log_in'
+  post 'customer' => 'customer#customer_check_number'
+  get 'customer/customer_not_found' => 'customer#customer_not_found'
+  
   get 'business/confirmation' => 'business#update_total_points'
   #get 'business' => 'business#update_total_points'
   get 'business/update_points' => 'business#search_phone_number'
