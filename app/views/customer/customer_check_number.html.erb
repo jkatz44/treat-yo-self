@@ -1,0 +1,15 @@
+  <!--<div class="header">
+  
+<div class="container">
+     <h1>phone_number</h1>
+    </div>
+</div>
+-->
+<div class="container">
+    <% @cards.each do |card| %> 
+      <div class="Card">
+      <%= card.business_name %>: <%= card.points %>
+      
+      </div><br />
+      <% end %>
+</div>
