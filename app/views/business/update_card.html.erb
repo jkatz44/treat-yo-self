@@ -3,6 +3,8 @@
 <%= form_tag({controller: "business", action: "check_phone_number"}, method: "patch", class: "business_form") do %>
   <%= label_tag(:phone_number, "Search for:") %>
   <%= text_field_tag(:phone_number) %>
+  <%= label_tag(:business_name, "Name of business:") %>
+  <%= text_field_tag(:business_name) %>
   <%= label_tag(:points, "Points earned:") %>
   <%= text_field_tag(:points) %>
   <%= submit_tag("Update") %>
