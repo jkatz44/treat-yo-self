@@ -18,11 +18,15 @@ class BusinessController < ApplicationController
     def do_update_card(phoneno, bizname)
         biz = bizname
         @card = Card.find_by(phone_number: phoneno, business_name: biz)
-        @card.points += params[:points].to_i
-        if @card.save
-            redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
+        if /^\d+$/.match(params[:points])
+            @card.points += params[:points].to_i
+            if @card.save
+                redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
+            else
+                redirect_to '/business/update_card', notice: "Could not save card "+@card.phone_number.to_s()+"."
+            end
         else
-            redirect_to '/buiness/update_card', notice: "Could not save card "+@card.phone_number.to_s()+"."
+            redirect_to '/business/update_card', notice: "The points you entered is invalid."
         end
     end
     
@@ -43,10 +47,14 @@ class BusinessController < ApplicationController
             @card.points = pointss
             @card.business_name = bizname
             @card.phone_number = phoneno
-            if @card.save
-                redirect_to '/business/', notice: "Success"
+            if /^\d{10,10}$/.match(phoneno) and /^\d+/.match(pointss)
+                if @card.save
+                    redirect_to '/business/', notice: "Success"
+                else
+                    redirect_to '/business/add_card', notice:"The phone number you entered cannot be saved."
+                end
             else
-                redirect_to '/business/add_card', notice:"The phone number you entered cannot be saved."
+                redirect_to '/business/add_card', notice:"The phone number and/or points you entered is invalid."
             end
         else
             redirect_to '/business/add_card', notice: "The card with the phone number "+phoneno.to_s()+" already exists."
