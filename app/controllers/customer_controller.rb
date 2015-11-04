@@ -11,7 +11,4 @@ class CustomerController < ApplicationController
             @cards = Card.where(phone_number: phoneno)
         end
     end
-    
-    def customer_not_found
-    end
 end
