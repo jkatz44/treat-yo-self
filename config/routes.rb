@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'customer' => 'customer#customer_log_in'
   post 'customer' => 'customer#customer_check_number'
-  get 'customer/customer_not_found' => 'customer#customer_not_found'
   get 'business' => 'business#options'
   get 'business/update_card' => 'business#update_card'
   patch 'business/something' => 'business#check_phone_number'
