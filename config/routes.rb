@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch 'business/do_add_card' => 'business#do_add_card'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
-  get '/auth/facebook' => 'sessions#create'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
