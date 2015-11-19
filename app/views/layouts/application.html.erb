@@ -17,6 +17,14 @@
     <div id="menu">
       <ul>
         <li class="page_item"><a href="/" accesskey="1" title="">Home</a></li>
+        <li>
+          <% if current_user %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Log out", logout_path %>
+          <% else %>
+            <%= link_to "Log in with Facebook", "/auth/facebook" %>
+          <% end %>
+        </li>
         <!--li class="page_item"><a href="#" accesskey="2" title="">Contact Us</a></li-->
       </ul>
     </div>
@@ -28,12 +36,15 @@
   <% end %>
 </div>
 
-<div id="wrapper">
-<%= yield %>
-</div>
-<div id="copyright" class="container">
-<p>| Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-</div>
-<footer><strong>TreatYoSelf</strong></footer>
+  <div id="wrapper">
+    <%= yield %>
+  
+  </div>
+  <div id="copyright" class="container">
+    <p>| Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+  </div>
+  <footer>
+    <strong>TreatYoSelf</strong>
+  </footer>
 </body>
 </html>
