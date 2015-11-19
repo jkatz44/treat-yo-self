@@ -15,13 +15,13 @@
     <%= link_to "Log in with Facebook", "/auth/facebook" %>
   <% end %>
 </div>
-<header>The Header</header>
+<header><strong>Plentiful Perks -- know what you've earned!</strong></header>
 <div class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
 <%= yield %>
-<footer>The Footer</footer>
+<footer><strong>TreatYoSelf</strong></footer>
 </body>
 </html>
