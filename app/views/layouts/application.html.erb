@@ -17,7 +17,7 @@
     <div id="menu">
       <ul>
         <li class="page_item"><a href="/" accesskey="1" title="">Home</a></li>
-        <li>
+        <li class="page_item">
           <% if current_user %>
             Signed in as <strong><%= current_user.name %></strong>!
             <%= link_to "Log out", logout_path %>
@@ -29,19 +29,20 @@
       </ul>
     </div>
   </div>
+  <div>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
 </header>
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-</div>
 
   <div id="wrapper">
     <%= yield %>
   
   </div>
   <div id="copyright" class="container">
-    <p>| Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+    <p>Photo from <a href="http://www.nextviewtechnologies.com/incentivesrebate-rewards.html">Nextview Technologies</a>
+    | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
   </div>
   <footer>
     <strong>TreatYoSelf</strong>
