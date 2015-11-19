@@ -3,17 +3,35 @@
 <head>
   <title>TreatYoSelf</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'templated-breadth/default.css', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>The Header</header>
+<header id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo" style="padding-left: 20pt;">
+      <h1><a href="#">Treat Yo' Self</a></h1>
+    </div>
+    <div id="menu">
+      <ul>
+        <li class="page_item"><a href="/" accesskey="1" title="">Home</a></li>
+        <!--li class="page_item"><a href="#" accesskey="2" title="">Contact Us</a></li-->
+      </ul>
+    </div>
+  </div>
+</header>
 <div class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
+
+<div id="wrapper">
 <%= yield %>
-<footer>The Footer</footer>
+</div>
+<div id="copyright" class="container">
+<p>| Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
 </body>
 </html>
