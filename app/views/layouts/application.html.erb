@@ -7,13 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>The Header</header>
+<div>
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Log out", logout_path %>
+  <% else %>
+    <%= link_to "Log in with Facebook", "/auth/facebook" %>
+  <% end %>
+</div>
+<header><strong>Plentiful Perks -- know what you've earned!</strong></header>
 <div class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
 <%= yield %>
-<footer>The Footer</footer>
+<footer><strong>TreatYoSelf</strong></footer>
 </body>
 </html>
