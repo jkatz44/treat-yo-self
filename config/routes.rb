@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch 'business/do_add_card' => 'business#do_add_card'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  get 'customer/add_phonenumber_to_account' => 'customer#add_phonenumber_to_account'
+  get 'customer/customer_add_phonenumber_to_account' => 'customer#add_phonenumber_to_account'
   patch 'customer/do_add_phonenumber_to_account' => 'customer#do_add_phonenumber_to_account'
   
   # The priority is based upon order of creation: first created -> highest priority.

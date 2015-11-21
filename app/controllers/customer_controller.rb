@@ -9,19 +9,19 @@ class CustomerController < ApplicationController
         phoneno = params[:phonenumber]
         if User.where(phonenumber: phoneno).empty?
             if User.where(:name => current_user)
-                @phonenumber = phoneno
+                #@phonenumber = phoneno
                 if /^\d{10,10}$/.match(phoneno)
-                    if @card.save
+                    if current_user.update(phonenumber: phoneno)
                         redirect_to root_url, notice: "Welcome to Treat Yo' Self!"
                     else
-                        redirect_to '/customer/add_phonenumber_to_account', notice:"The phone number you entered cannot be saved."
+                        redirect_to '/customer/customer_add_phonenumber_to_account', notice:"The phone number you entered cannot be saved."
                     end
                 else
-                    redirect_to '/customer/add_phonenumber_to_account', notice:"The phone number you entered is invalid."
+                    redirect_to '/customer/customer_add_phonenumber_to_account', notice:"The phone number you entered is invalid."
                 end
             end
         else
-            redirect_to '/customer/add_phonenumber_to_account', notice:"The phone number you entered is already used."
+            redirect_to '/customer/customer_add_phonenumber_to_account', notice:"The phone number you entered is already used."
         end
     end
     
