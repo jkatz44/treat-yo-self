@@ -2,15 +2,18 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'customer' => 'customer#customer_log_in'
   post 'customer' => 'customer#customer_check_number'
-  get 'business' => 'business#options'
-  get 'business/update_card' => 'business#update_card'
-  patch 'business/something' => 'business#check_phone_number'
-  get 'business/add_card' => 'business#add_card'
-  patch 'business/do_add_card' => 'business#do_add_card'
+  
+  get 'signup'  => 'businesses#new' 
+  resources :businesses
+  
+  get 'business_options' => 'businesses#options'
+  get 'business/update_card' => 'businesses#update_card'
+  patch 'business/something' => 'businesses#check_phone_number'
+  get 'business/add_card' => 'businesses#add_card'
+  patch 'business/do_add_card' => 'businesses#do_add_card'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  
-  :resources
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
