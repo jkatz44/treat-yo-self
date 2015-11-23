@@ -1,0 +1,7 @@
+<h2><em>Please enter phone number in format of ##########</em></h2>
+
+<%= form_tag({controller: "customer", action: "do_add_phonenumber_to_account"}, method: "patch", class: "do_add_phonenumber_to_account_form") do %>
+  <%= label_tag(:phonenumber, "Phone Number:") %>
+  <%= text_field_tag(:phonenumber) %>
+  <%= submit_tag("Enter") %>
+<% end %>
