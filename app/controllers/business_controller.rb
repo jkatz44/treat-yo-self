@@ -22,7 +22,7 @@ class BusinessController < ApplicationController
         if /^\d+$/.match(params[:points])
             if action == "add"
                 @card.points += params[:points].to_i
-            else if action == "deduct"
+            elsif action == "deduct"
                 @card.points -= params[:points].to_i
             else
                 print "This is a fail"    
