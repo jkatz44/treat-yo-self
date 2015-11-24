@@ -9,6 +9,8 @@ class BusinessController < ApplicationController
         phoneno = params[:phone_number]
         bizname = params[:business_name]
         action = params[:commit]
+        print action
+        print type(action)
         if Card.where(:phone_number => phoneno, :business_name => bizname).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
@@ -20,9 +22,9 @@ class BusinessController < ApplicationController
         biz = bizname
         @card = Card.find_by(phone_number: phoneno, business_name: biz)
         if /^\d+$/.match(params[:points])
-            if action == "add"
+            if action.to_s == "add"
                 @card.points += params[:points].to_i
-            elsif action == "deduct"
+            elsif action.to_s == "deduct"
                 @card.points -= params[:points].to_i
             else
                 print "This is a fail"    
