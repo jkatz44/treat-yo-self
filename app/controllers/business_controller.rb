@@ -10,7 +10,7 @@ class BusinessController < ApplicationController
         bizname = params[:business_name]
         action = params[:commit]
         print action
-        print type(action)
+        print action.is_a?(String)
         if Card.where(:phone_number => phoneno, :business_name => bizname).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
