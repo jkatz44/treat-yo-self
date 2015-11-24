@@ -7,7 +7,8 @@
   <%= text_field_tag(:business_name) %>
   <%= label_tag(:points, "Points earned:") %>
   <%= text_field_tag(:points) %>
-  <%= submit_tag("Update") %>
+  <%= submit_tag 'Add points', :name => 'add' %>
+  <%= submit_tag 'Deduct points', :name => 'deduct' %>
 <% end %>
 
 <%= link_to "Back to business homepage", business_path %>
