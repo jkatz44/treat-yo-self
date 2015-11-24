@@ -1,6 +1,4 @@
 class CustomerController < ApplicationController
-    def customer_log_in
-    end
     
     def add_phonenumber_to_account
     end
@@ -12,7 +10,7 @@ class CustomerController < ApplicationController
                 #@phonenumber = phoneno
                 if /^\d{10,10}$/.match(phoneno)
                     if current_user.update(phonenumber: phoneno)
-                        redirect_to root_url, notice: "Welcome to Treat Yo' Self!"
+                        redirect_to '/customer/', notice: "Welcome to Treat Yo' Self!"
                     else
                         redirect_to '/customer/customer_add_phonenumber_to_account', notice:"The phone number you entered cannot be saved."
                     end
@@ -25,13 +23,9 @@ class CustomerController < ApplicationController
         end
     end
     
-    def customer_check_number
-        phoneno = params[:phone_number]
-        if Card.where(:phone_number => phoneno).blank?
-            redirect_to '/customer', notice: "Phone number not found please try another one"
-        else
-            @cards = Card.where(phone_number: phoneno)
-        end
+    def customer_view_cards
+        phoneno = current_user.phonenumber
+        @cards = Card.where(phone_number: phoneno)
     end
     
 end

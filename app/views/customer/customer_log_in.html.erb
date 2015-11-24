@@ -1,7 +1,0 @@
-<h2><em>Please enter phone number in format of ##########</em></h2>
-
-<%= form_tag({controller: "customer", action: "customer_log_in"}, method: "post", class: "customer_form") do %>
-  <%= label_tag(:phone_number, "Search for:") %>
-  <%= text_field_tag(:phone_number) %>
-  <%= submit_tag("Enter") %>
-<% end %>

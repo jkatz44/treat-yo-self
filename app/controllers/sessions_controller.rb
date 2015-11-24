@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if (user.phonenumber == nil)
       redirect_to '/customer/customer_add_phonenumber_to_account'
     else
-      redirect_to root_url
+      redirect_to '/customer/'
     end
   end
 
