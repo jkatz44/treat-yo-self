@@ -20,10 +20,12 @@ class BusinessController < ApplicationController
         biz = bizname
         @card = Card.find_by(phone_number: phoneno, business_name: biz)
         if /^\d+$/.match(params[:points])
-            if action == 'add'
+            if action == "add"
                 @card.points += params[:points].to_i
-            else
+            else if action == "deduct"
                 @card.points -= params[:points].to_i
+            else
+                notice: 'This was a fail'
             end
             if @card.save
                 redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
