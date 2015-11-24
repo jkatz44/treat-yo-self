@@ -25,7 +25,7 @@ class BusinessController < ApplicationController
             else if action == "deduct"
                 @card.points -= params[:points].to_i
             else
-                notice: 'This was a fail'
+                print "This is a fail"    
             end
             if @card.save
                 redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
