@@ -1,4 +1,6 @@
 class BusinessesController < ApplicationController
+    before_action :require_business, only: [:add_card, :update_card, :options]
+    
     def options
     end
     
@@ -71,7 +73,7 @@ class BusinessesController < ApplicationController
         session[:business_id] = @business.id 
         redirect_to '/business_options' 
       else 
-        redirect_to '/signup' 
+        redirect_to '/business_signup' 
       end 
     end
     

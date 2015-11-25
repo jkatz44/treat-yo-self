@@ -3,14 +3,19 @@ Rails.application.routes.draw do
   get 'customer' => 'customer#customer_log_in'
   post 'customer' => 'customer#customer_check_number'
   
-  get 'signup'  => 'businesses#new' 
+  get 'business_signup'  => 'businesses#new' 
   resources :businesses
+  
+  get '/business_login' => 'sessions#business_new'
+  post 'business_login' => 'sessions#business_create'
+  delete 'business_logout' => 'sessions#business_destroy'
   
   get 'business_options' => 'businesses#options'
   get 'business/update_card' => 'businesses#update_card'
   patch 'business/something' => 'businesses#check_phone_number'
   get 'business/add_card' => 'businesses#add_card'
   patch 'business/do_add_card' => 'businesses#do_add_card'
+  
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 

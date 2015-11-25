@@ -19,15 +19,34 @@
         <li class="page_item">
           <% if current_user %>
             Welcome <strong><%= current_user.name %></strong>!
+          <% elsif current_business %>
+            Welcome <strong><%= current_business.business %></strong>!
           <% end %>
         </li>
-        <li class="page_item"><a href="/" accesskey="1" title="">Home</a></li>
-        <li class="page_item"><a href="/signup" accesskey="1" title="">Business Signup</a></li>
+        <li class="page_item">
+          <% if current_business %>
+            <a href="/business_options" accesskey="1" title="">Home</a>
+          <% else %>
+            <a href="/" accesskey="1" title="">Home</a>
+          <% end %>
+        </li>
+        <li class="page_item">
+          <% if not current_business %>
+            <a href="/business_signup" accesskey="1" title="">Business Signup</a>
+          <% end %>
+        </li>
         <li class="page_item">
           <% if current_user %>
             <%= link_to "Log out", logout_path %>
-          <% else %>
+          <% elsif not current_business %>
             <%= link_to "Log in with Facebook", "/auth/facebook" %>
+          <% end %>
+        </li>
+        <li class="page_item">
+          <% if current_business %>
+            <%= link_to "Log out", business_logout_path, method: "delete" %>
+          <% elsif not current_user %>
+            <%= link_to "Business Login", "/business_login" %>
           <% end %>
         </li>
         <!--li class="page_item"><a href="#" accesskey="2" title="">Contact Us</a></li-->
