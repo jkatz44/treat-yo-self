@@ -30,7 +30,7 @@ class BusinessesController < ApplicationController
             end
             
             if @card.save
-                redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
+                redirect_to '/business_options', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
             else
                 redirect_to '/business/update_card', notice: "Could not save card "+@card.phone_number.to_s()+"."
             end
@@ -58,7 +58,7 @@ class BusinessesController < ApplicationController
             @card.phone_number = phoneno
             if /^\d{10,10}$/.match(phoneno) and /^\d+/.match(pointss)
                 if @card.save
-                    redirect_to '/business/', notice: "Success"
+                    redirect_to '/business_options', notice: "Success"
                 else
                     redirect_to '/business/add_card', notice:"The phone number you entered cannot be saved."
                 end

@@ -26,12 +26,14 @@
         <li class="page_item">
           <% if current_business %>
             <a href="/business_options" accesskey="1" title="">Home</a>
+          <%elsif current_user %>
+            <a href="customer" accesskey="1" title="">Home</a>
           <% else %>
             <a href="/" accesskey="1" title="">Home</a>
           <% end %>
         </li>
         <li class="page_item">
-          <% if not current_business %>
+          <% if not current_business and not current_user %>
             <a href="/business_signup" accesskey="1" title="">Business Signup</a>
           <% end %>
         </li>
@@ -49,7 +51,6 @@
             <%= link_to "Business Login", "/business_login" %>
           <% end %>
         </li>
-        <!--li class="page_item"><a href="#" accesskey="2" title="">Contact Us</a></li-->
       </ul>
     </div>
   </div>
