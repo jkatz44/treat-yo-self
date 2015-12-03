@@ -48,10 +48,10 @@ class BusinessesController < ApplicationController
     
     def do_add_card
         @alert = ""
-        bizname = params[:business_name]
+        bizname = current_business.business
         phoneno = params[:phone_number]
         pointss = params[:points]
-        if Card.where(phone_number: phoneno, business_name: bizname).blank?
+        if Card.where(phone_number: phoneno).blank?
             @card = Card.new
             @card.points = pointss
             @card.business_name = bizname
