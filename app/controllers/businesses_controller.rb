@@ -12,7 +12,7 @@ class BusinessesController < ApplicationController
         if Card.where(:phone_number => phoneno).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
-            do_update_card(phoneno, :business_name)
+            do_update_card(phoneno, current_business.business)
         end
     end
     
