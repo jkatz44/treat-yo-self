@@ -3,8 +3,6 @@
 <%= form_tag({controller: "businesses", action: "do_add_card"}, method: "patch", class: "add_card_form") do %>
   <%= label_tag(:phone_number, "Customer's phone number: ") %>
   <%= text_field_tag(:phone_number)%>
-  <%= label_tag(:business_name, "Name of business:") %>
-  <%= text_field_tag(:business_name) %>
   <%= label_tag(:points, "Points earned:") %>
   <%= text_field_tag(:points) %>
   <%= submit_tag("Add card") %>

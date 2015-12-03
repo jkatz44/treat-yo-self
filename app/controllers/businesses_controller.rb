@@ -9,7 +9,7 @@ class BusinessesController < ApplicationController
     
     def check_phone_number
         phoneno = params[:phone_number]
-        bizname = params[:business_name]
+        bizname = current_business.business
         if Card.where(:phone_number => phoneno, :business_name => bizname).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
@@ -48,7 +48,7 @@ class BusinessesController < ApplicationController
     
     def do_add_card
         @alert = ""
-        bizname = params[:business_name]
+        bizname = current_business.business
         phoneno = params[:phone_number]
         pointss = params[:points]
         if Card.where(phone_number: phoneno, business_name: bizname).blank?
@@ -66,7 +66,7 @@ class BusinessesController < ApplicationController
                 redirect_to '/business/add_card', notice:"The phone number and/or points you entered is invalid."
             end
         else
-            redirect_to '/business/add_card', notice: "The card with the phone number "+phoneno.to_s()+" already exists."
+            redirect_to '/business/add_card', notice: "The card with the phone number "+phoneno.to_s()+" already exists for "+bizname.to_s()+"."
         end
     end
     
