@@ -9,11 +9,10 @@ class BusinessesController < ApplicationController
     
     def check_phone_number
         phoneno = params[:phone_number]
-        bizname = params[:business_name]
-        if Card.where(:phone_number => phoneno, :business_name => bizname).blank?
+        if Card.where(:phone_number => phoneno).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
-            do_update_card(phoneno, bizname)
+            do_update_card(phoneno, :business_name)
         end
     end
     
