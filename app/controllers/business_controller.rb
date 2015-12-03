@@ -8,26 +8,24 @@ class BusinessController < ApplicationController
     def check_phone_number
         phoneno = params[:phone_number]
         bizname = params[:business_name]
-        action = params[:commit]
-        print action
-        print action.is_a?(String)
         if Card.where(:phone_number => phoneno, :business_name => bizname).blank?
                 redirect_to '/business/update_card', notice: "The given phone number is not associated with " + bizname + "."
         else
-            do_update_card(phoneno, bizname, action)
+            do_update_card(phoneno, bizname)
         end
     end
     
-    def do_update_card(phoneno, bizname, action)
+    def do_update_card(phoneno, bizname)
         biz = bizname
         @card = Card.find_by(phone_number: phoneno, business_name: biz)
         if /^\d+$/.match(params[:points])
-            if action.to_s == "add"
+            if params[:commit] == 'Add'
                 @card.points += params[:points].to_i
-            elsif action.to_s == "deduct"
+            elsif params[:commit] == 'Deduct'
                 @card.points -= params[:points].to_i
             else
-                print "This is a fail"    
+                redirect_to '/business/update_card', notice: "This failed."
+
             end
             if @card.save
                 redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
