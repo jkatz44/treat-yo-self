@@ -25,8 +25,8 @@ class BusinessController < ApplicationController
                 @card.points -= params[:points].to_i
             else
                 redirect_to '/business/update_card', notice: "This failed."
-
             end
+            
             if @card.save
                 redirect_to '/business/', notice: "Card "+@card.phone_number.to_s()+" updated successfully."
             else
