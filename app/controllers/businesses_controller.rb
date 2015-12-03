@@ -1,4 +1,6 @@
-class BusinessController < ApplicationController
+class BusinessesController < ApplicationController
+    before_action :require_business, only: [:add_card, :update_card, :options]
+    
     def options
     end
     
@@ -67,4 +69,23 @@ class BusinessController < ApplicationController
             redirect_to '/business/add_card', notice: "The card with the phone number "+phoneno.to_s()+" already exists."
         end
     end
+    
+    def new
+        @business = Business.new
+    end
+    
+    def create 
+      @business = Business.new(user_params) 
+      if @business.save 
+        session[:business_id] = @business.id 
+        redirect_to '/business_options' 
+      else 
+        redirect_to '/business_signup' 
+      end 
+    end
+    
+    private
+      def user_params
+        params.require(:business).permit(:business, :username, :email, :password)
+      end
 end
