@@ -56,6 +56,7 @@ class BusinessesController < ApplicationController
             @card.points = pointss
             @card.business_name = bizname
             @card.phone_number = phoneno
+            @card.bizlogo = current_business.bizlogo
             if /^\d{10,10}$/.match(phoneno) and /^\d+/.match(pointss)
                 if @card.save
                     redirect_to '/business_options', notice: "Success"

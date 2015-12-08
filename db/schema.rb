@@ -26,13 +26,9 @@ ActiveRecord::Schema.define(version: 20151208002338) do
     t.string   "phone_number"
     t.string   "business_name"
     t.integer  "points"
+    t.string   "bizlogo"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

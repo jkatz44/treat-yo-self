@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   
   def current_business
     @current_business ||= Business.find(session[:business_id]) if session[:business_id]
+    rescue ActiveRecord::RecordNotFound
   end
   
   def require_business

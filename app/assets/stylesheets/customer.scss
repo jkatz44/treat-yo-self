@@ -14,7 +14,27 @@ body {
     background-color: #ddeeff;
     display: inline-block;
     border: 3px solid;
+    width: 300px;
+    max-width: 300px;
+    height: 75px;
+    max-height: 75px;
+
 }
+
+.Card .cardlogo {
+    float: left;
+}
+
+.Card .cardname {
+    float: left;
+    padding-left: 10px;
+}
+
+.Card .cardpts {
+    float: right;
+}
+
+
 .container {
     padding-left: 75px;
     padding-top: 25px;

@@ -25,7 +25,6 @@ class CustomerController < ApplicationController
     
     def customer_view_cards
         phoneno = current_user.phonenumber
-        @cards = Card.where(phone_number: phoneno)
+        @cards = Card.order("business_name ASC").where(phone_number: phoneno)
     end
-    
 end
