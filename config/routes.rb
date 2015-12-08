@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :businesses
   
   get '/business_login' => 'sessions#business_new'
-  post 'business_login' => 'sessions#business_create'
+  post '/business_login' => 'sessions#business_create'
   delete 'business_logout' => 'sessions#business_destroy'
   
   get 'business_options' => 'businesses#options'
