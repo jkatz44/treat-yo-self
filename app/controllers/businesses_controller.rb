@@ -86,6 +86,6 @@ class BusinessesController < ApplicationController
     
     private
       def user_params
-        params.require(:business).permit(:business, :username, :email, :password)
+        params.require(:business).permit(:business, :username, :email, :bizlogo, :password)
       end
 end
