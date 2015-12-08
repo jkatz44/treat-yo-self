@@ -26,5 +26,11 @@ class CustomerController < ApplicationController
     def customer_view_cards
         phoneno = current_user.phonenumber
         @cards = Card.order("business_name ASC").where(phone_number: phoneno)
+
+        if params[:search]
+            @cards = Card.search(params[:search]).order("business_name ASC")
+        else
+            @cards = Card.order("business_name ASC").where(phone_number: phoneno)
+        end
     end
 end
