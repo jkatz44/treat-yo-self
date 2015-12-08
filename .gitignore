@@ -20,5 +20,5 @@
 *~
 
 #Ignore image uploads
-/public/uploads
+#/public/uploads
 
