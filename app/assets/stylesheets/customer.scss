@@ -14,7 +14,7 @@ input {
     padding-left: 76px;
 }
 
-.Card {
+.Card_customer {
     font-size: 18pt;
     padding: 25px;
     border-radius: 5px;
@@ -28,16 +28,16 @@ input {
     max-height: 75px;
 }
 
-.Card .cardlogo {
+.Card_customer .cardlogo {
     float: left;
 }
 
-.Card .cardname {
+.Card_customer .cardname {
     float: left;
     padding-left: 10px;
 }
 
-.Card .cardpts {
+.Card_customer .cardpts {
     float: right;
 }
 
