@@ -23,6 +23,11 @@
             Welcome <strong><%= current_business.business %></strong>!
           <% end %>
         </li>
+        <li>
+          <% if current_business %>
+            <%= image_tag current_business.bizlogo.url, class: "bizlogo" %>
+          <% end %>
+        </li>
         <li class="page_item">
           <% if current_business %>
             <a href="/business_options" accesskey="1" title="">Home</a>

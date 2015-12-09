@@ -6,15 +6,42 @@ body {
     background-color: #aaccff;
 }
 
+input {
+    width: 200px;
+}
+
+.search-bar {
+    padding-left: 76px;
+}
+
 .Card {
     font-size: 18pt;
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 10px;
-    background-color: #ddeeff;
+    background-color: #d3d3d3;
     display: inline-block;
     border: 3px solid;
+    width: 300px;
+    max-width: 300px;
+    height: 75px;
+    max-height: 75px;
 }
+
+.Card .cardlogo {
+    float: left;
+}
+
+.Card .cardname {
+    float: left;
+    padding-left: 10px;
+}
+
+.Card .cardpts {
+    float: right;
+}
+
+
 .container {
     padding-left: 75px;
     padding-top: 25px;

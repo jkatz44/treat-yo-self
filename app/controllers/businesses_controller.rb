@@ -63,6 +63,7 @@ class BusinessesController < ApplicationController
             @card.business_name = bizname
             @card.phone_number = phoneno
             @card.customer_name = customername
+            @card.bizlogo = current_business.bizlogo
             if /^\d{10,10}$/.match(phoneno) and /^\d+/.match(pointss)
                 if @card.save
                     redirect_to '/business_options', notice: "Success"
@@ -100,6 +101,6 @@ class BusinessesController < ApplicationController
     
     private
       def user_params
-        params.require(:business).permit(:business, :username, :email, :password)
+        params.require(:business).permit(:business, :username, :email, :bizlogo, :password)
       end
 end

@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121194834) do
+ActiveRecord::Schema.define(version: 20151208002338) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "business"
-    t.string   "username"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "bizlogo"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151121194834) do
     t.string   "phone_number"
     t.string   "business_name"
     t.integer  "points"
+    t.string   "bizlogo"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

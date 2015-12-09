@@ -19,3 +19,6 @@
 #Ignore backups
 *~
 
+#Ignore image uploads
+/public/uploads
+

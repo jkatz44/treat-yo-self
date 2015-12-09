@@ -1,8 +1,16 @@
+
+<div class="search-bar">
+<%= form_tag(customer_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Businesses by Name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+
 <div class="container">
     <% @cards.each do |card| %> 
       <div class="Card">
-      <%= card.business_name %>: <%= card.points %>
-      
+      <div class="cardlogo"><%= image_tag card.bizlogo, class: "bizlogo" %></div>
+      <div class="cardname"><%= h truncate(card.business_name, :length => 15) %>:</div><div class="cardpts"><%= card.points %></div>
       </div><br />
       <% end %>
 </div>
