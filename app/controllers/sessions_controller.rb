@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       session[:business_id] = @business.id
       redirect_to '/business_options'
     else
-      redirect_to 'business_login'
+      redirect_to '/business_login', notice: "This username does not exist. Please sign up."
     end 
   end
   
