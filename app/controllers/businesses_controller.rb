@@ -90,11 +90,11 @@ class BusinessesController < ApplicationController
           redirect_to '/business_signup', notice: "The username "+sparams[:username]+" already exists."
       else
         @business = Business.new(sparams) 
-        if @business.save 
+        if @business.save!
             session[:business_id] = @business.id 
             redirect_to '/business_options' 
         else 
-            redirect_to '/business_signup' 
+            redirect_to '/business_signup', notice: "Your business could not be saved in the system."
         end
       end
     end
