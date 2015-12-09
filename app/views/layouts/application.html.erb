@@ -38,15 +38,15 @@
           <% end %>
         </li>
         <li class="page_item">
-          <% if not current_business and not current_user %>
-            <a href="/business_signup" accesskey="1" title="">Business Signup</a>
-          <% end %>
-        </li>
-        <li class="page_item">
           <% if current_user %>
             <%= link_to "Log out", logout_path %>
           <% elsif not current_business %>
-            <%= link_to "Log in with Facebook", "/auth/facebook" %>
+            <%= link_to "View Your Rewards with Facebook", "/auth/facebook" %>
+          <% end %>
+        </li>
+        <li class="page_item">
+          <% if not current_business and not current_user %>
+            <a href="/business_signup" accesskey="1" title="">Business Signup</a>
           <% end %>
         </li>
         <li class="page_item">

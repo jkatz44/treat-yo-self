@@ -4,6 +4,11 @@ class BusinessesController < ApplicationController
     def options
     end
     
+    def business_view_cards
+        bizname = current_business.business
+        @cards = Card.where(business_name: bizname)
+    end
+    
     def update_card
     end
     
@@ -51,11 +56,13 @@ class BusinessesController < ApplicationController
         bizname = current_business.business
         phoneno = params[:phone_number]
         pointss = params[:points]
-        if Card.where(phone_number: phoneno, business_name: bizname).blank?
+        customername = params[:customer_name]
+        if Card.where(customer_name: customername, phone_number: phoneno, business_name: bizname).blank?
             @card = Card.new
             @card.points = pointss
             @card.business_name = bizname
             @card.phone_number = phoneno
+            @card.customer_name = customername
             @card.bizlogo = current_business.bizlogo
             if /^\d{10,10}$/.match(phoneno) and /^\d+/.match(pointss)
                 if @card.save
@@ -76,13 +83,20 @@ class BusinessesController < ApplicationController
     end
     
     def create 
-      @business = Business.new(user_params) 
-      if @business.save 
-        session[:business_id] = @business.id 
-        redirect_to '/business_options' 
-      else 
-        redirect_to '/business_signup' 
-      end 
+      sparams = user_params
+      if sparams[:business].empty?
+          redirect_to '/business_signup', notice: "You must enter a name for your business."
+      elsif not Business.where(username: sparams[:username]).blank?
+          redirect_to '/business_signup', notice: "The username "+sparams[:username]+" already exists."
+      else
+        @business = Business.new(sparams) 
+        if @business.save 
+            session[:business_id] = @business.id 
+            redirect_to '/business_options' 
+        else 
+            redirect_to '/business_signup' 
+        end
+      end
     end
     
     private

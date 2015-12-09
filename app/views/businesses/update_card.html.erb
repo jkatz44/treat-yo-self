@@ -1,10 +1,10 @@
-<h2><em>Search phone numbers here!</em></h2>
+<h2><em>Update a card here!</em></h2>
 
 <%= form_tag({controller: "businesses", action: "check_phone_number"}, method: "patch", class: "business_form") do %>
-  <%= label_tag(:phone_number, "Search for:") %>
-  <%= text_field_tag(:phone_number) %>
+  <%= label_tag(:phone_number, "Phone Number:") %>
+  <%= text_field_tag(:phone_number) %></br>
   <%= label_tag(:points, "Points:") %>
-  <%= text_field_tag(:points) %>
+  <%= text_field_tag(:points) %></br>
   <%= submit_tag 'Add' %>
   <%= submit_tag 'Deduct' %>
 <% end %>

@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
   
   def business_create
-    @business = Business.find_by_email(params[:session][:email])
+    @business = Business.find_by_username(params[:session][:username])
     if @business && @business.authenticate(params[:session][:password])
       session[:business_id] = @business.id
       redirect_to '/business_options'

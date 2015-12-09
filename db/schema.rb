@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151208002338) do
   end
 
   create_table "cards", force: :cascade do |t|
+    t.string   "customer_name"
     t.string   "phone_number"
     t.string   "business_name"
     t.integer  "points"

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete 'business_logout' => 'sessions#business_destroy'
   
   get 'business_options' => 'businesses#options'
+  get 'business_view_cards' => 'businesses#business_view_cards'
   get 'business/update_card' => 'businesses#update_card'
   patch 'business/something' => 'businesses#check_phone_number'
   get 'business/add_card' => 'businesses#add_card'

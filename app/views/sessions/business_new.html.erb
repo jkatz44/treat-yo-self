@@ -1,7 +1,7 @@
 <h1>Business Log in</h1>
 			
 <%= form_for(:session, url: business_login_path) do |f| %> 
-  <%= f.email_field :email, :placeholder => "Email" %><br />
+  <%= f.text_field :username, :placeholder => "Username" %><br />
   <%= f.password_field :password, :placeholder => "Password" %><br />
   <%= f.submit "Log in", class: "btn-submit" %>
 <% end %>

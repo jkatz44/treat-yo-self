@@ -1,0 +1,10 @@
+<div class="container">
+    <% @cards.each do |card| %> 
+      <div class="Card">
+      Customer Name: <%= card.customer_name %></br>
+      Phone Number: <%= card.phone_number %></br>
+      Points: <%= card.points %>
+      </div><br />
+      <% end %>
+</div>
+<%= link_to "Back to business homepage", business_options_path %>
