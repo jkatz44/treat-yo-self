@@ -8,7 +8,7 @@
 
 <div class="container">
     <% @cards.each do |card| %> 
-      <div class="Card">
+      <div class="Card_customer">
       <div class="cardlogo"><%= image_tag card.bizlogo, class: "bizlogo" %></div>
       <div class="cardname"><%= h truncate(card.business_name, :length => 15) %>:</div><div class="cardpts"><%= card.points %></div>
       </div><br />

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151208002338) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "business"
+    t.string   "username"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

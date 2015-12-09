@@ -28,7 +28,7 @@ class CustomerController < ApplicationController
         @cards = Card.order("business_name ASC").where(phone_number: phoneno)
 
         if params[:search]
-            @cards = Card.search(params[:search]).order("business_name ASC")
+            @cards = Card.search(params[:search]).where(phone_number: phoneno).order("business_name ASC")
         else
             @cards = Card.order("business_name ASC").where(phone_number: phoneno)
         end

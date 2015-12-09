@@ -1,8 +1,8 @@
 <div class="container">
     <% @cards.each do |card| %> 
-      <div class="Card">
-      Customer Name: <%= card.customer_name %></br>
-      Phone Number: <%= card.phone_number %></br>
+      <div class="Card_business">
+      Name: <%= h truncate(card.customer_name, :length => 15)%><br />
+      Phone Number: <%= card.phone_number %><br />
       Points: <%= card.points %>
       </div><br />
       <% end %>

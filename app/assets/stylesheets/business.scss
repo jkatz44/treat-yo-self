@@ -1,3 +1,18 @@
 // Place all the styles related to the business controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Card_business {
+    font-size: 18pt;
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #d3d3d3;
+    display: inline-block;
+    border: 3px solid;
+    width: 350px;
+    max-width: 350px;
+    height: 75px;
+    max-height: 75px;
+    overflow: hidden;
+}
